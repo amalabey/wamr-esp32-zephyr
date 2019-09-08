@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 echo "regenerating .bin image from .elf"
 rm build/zephyr/zephyr.bin
 esptool.py --chip esp32 elf2image build/zephyr/zephyr.elf

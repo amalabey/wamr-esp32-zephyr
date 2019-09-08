@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 echo "Cleaning up build directory"
 rm -rf build
 mkdir build && cd build

@@ -12,7 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-emcc -g -O3 *.c -s WASM=1 -s SIDE_MODULE=1 -s ASSERTIONS=1 -s STACK_OVERFLOW_CHECK=2 \
+set -e
+
+source ~/work/iot/emsdk/emsdk_env.sh
+
+IWASM_ROOT=${PWD}/../../../iwasm
+APP_LIBS=${IWASM_ROOT}/lib/app-libs
+NATIVE_LIBS=${IWASM_ROOT}/lib/native-interface
+
+emcc -g -O3 timer.c -s WASM=1 -s SIDE_MODULE=1 -s ASSERTIONS=1 -s STACK_OVERFLOW_CHECK=2 \
+                -I${APP_LIBS}/base \
+                -I${APP_LIBS}/extension/sensor \
+                -I${NATIVE_LIBS} \
+                -I${APP_LIBS}/extension/connection \
+                -I${APP_LIBS}/extension/gui \
+                -s "EXPORTED_FUNCTIONS=['_on_init', '_on_destroy', '_on_request', '_on_response', \
+                             '_on_sensor_event', '_on_timer_callback', '_on_connection_data']" \
                 -s TOTAL_MEMORY=65536 -s TOTAL_STACK=4096 -o test.wasm
+                
 #./jeffdump -o test_wasm.h -n wasm_test_file test.wasm
-xxd -i test.wasm
+xxd -i test.wasm > test_wasm.h

@@ -1,20 +1,4 @@
-/*
- * Copyright (C) 2019 Intel Corporation.  All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-unsigned char wasm_test_file[] = {
+unsigned char test_wasm[] = {
   0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00, 0x00, 0x0d, 0x06, 0x64,
   0x79, 0x6c, 0x69, 0x6e, 0x6b, 0xe0, 0x21, 0x04, 0x02, 0x00, 0x00, 0x01,
   0x1f, 0x06, 0x60, 0x00, 0x00, 0x60, 0x01, 0x7f, 0x00, 0x60, 0x02, 0x7f,
@@ -78,3 +62,4 @@ unsigned char wasm_test_file[] = {
   0x6e, 0x67, 0x55, 0x52, 0x4c, 0x0d, 0x74, 0x65, 0x73, 0x74, 0x2e, 0x77,
   0x61, 0x73, 0x6d, 0x2e, 0x6d, 0x61, 0x70
 };
+unsigned int test_wasm_len = 739;

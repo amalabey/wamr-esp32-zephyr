@@ -16,13 +16,28 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "wasm_app.h"
+
+static int timer_count = 0;
+
+void timer_tick(user_timer_t timer)
+{
+    printf("Hello from timer tick: %d \n", timer_count++);
+}
 
 int main(int argc, char **argv)
 {
+    printf("main: Initialising the timer..!\n");
+
     char *buf;
+    user_timer_t timer;
 
-    printf("Hello AA!\n");
+    timer = api_timer_create(1000, true, false, timer_tick);
+    api_timer_restart(timer, 1000);
 
+    printf("mian: Timer started \n");
+
+    /*
     buf = malloc(200);
     if (!buf) {
         printf("malloc buf failed\n");
@@ -35,5 +50,6 @@ int main(int argc, char **argv)
     printf("buf: %s", buf);
 
     free(buf);
+    */
     return 0;
 }

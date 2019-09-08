@@ -21,6 +21,7 @@ enable_language (ASM)
 
 add_definitions (-DNVALGRIND)
 
+set (TARGET_PLATFORM "zephyr")
 set (IWASM_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/iwasm)
 set (SHARED_LIB_ROOT ${IWASM_ROOT}/../shared-lib)
 
@@ -30,7 +31,14 @@ include_directories (${IWASM_ROOT}/runtime/include
                      ${IWASM_ROOT}/runtime/vmcore-wasm
                      ${SHARED_LIB_ROOT}/include
                      ${SHARED_LIB_ROOT}/platform/include
-                     ${SHARED_LIB_ROOT}/platform/zephyr)
+                     ${SHARED_LIB_ROOT}/platform/zephyr
+                     ${IWASM_ROOT}/lib/native/extension/connection/${TARGET_PLATFORM}
+                     ${IWASM_ROOT}/lib/app-libs/base
+                     ${IWASM_ROOT}/extension/sensor
+                     ${IWASM_ROOT}/lib/native-interface
+                     ${IWASM_ROOT}/lib/app-libs/extension/connection
+                     ${IWASM_ROOT}/lib/app-libs/extension/gui
+                     )
 
 set (IWASM_SRCS ${IWASM_ROOT}/runtime/utils/wasm_hashmap.c
                 ${IWASM_ROOT}/runtime/utils/wasm_log.c

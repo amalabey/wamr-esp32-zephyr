@@ -15,7 +15,13 @@
  */
 
 #include "lib_export.h"
+#include "wasm_app.h"
 
-static NativeSymbol extended_native_symbol_defs[] = { };
+static NativeSymbol extended_native_symbol_defs[] = {
+    EXPORT_WASM_API(wasm_create_timer),
+    EXPORT_WASM_API(wasm_timer_set_interval),
+    EXPORT_WASM_API(wasm_timer_cancel),
+    EXPORT_WASM_API(wasm_timer_restart)
+};
 
 #include "ext_lib_export.h"
