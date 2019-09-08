@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
+#include "ext_lib_export_dec.h"
 #include "lib_export.h"
-#include "wasm_app.h"
+#include <sys/printk.h>
+
+void print_test(int num)
+{
+    printk("Hello from exported print_test: %d \n", num);
+}
+
 
 static NativeSymbol extended_native_symbol_defs[] = {
-    EXPORT_WASM_API(wasm_create_timer),
-    EXPORT_WASM_API(wasm_timer_set_interval),
-    EXPORT_WASM_API(wasm_timer_cancel),
-    EXPORT_WASM_API(wasm_timer_restart)
+    EXPORT_WASM_API(print_test)
 };
 
 #include "ext_lib_export.h"

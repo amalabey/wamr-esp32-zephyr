@@ -20,14 +20,8 @@ IWASM_ROOT=${PWD}/../../../iwasm
 APP_LIBS=${IWASM_ROOT}/lib/app-libs
 NATIVE_LIBS=${IWASM_ROOT}/lib/native-interface
 
-emcc -g -O3 timer.c -s WASM=1 -s SIDE_MODULE=1 -s ASSERTIONS=1 -s STACK_OVERFLOW_CHECK=2 \
-                -I${APP_LIBS}/base \
-                -I${APP_LIBS}/extension/sensor \
-                -I${NATIVE_LIBS} \
-                -I${APP_LIBS}/extension/connection \
-                -I${APP_LIBS}/extension/gui \
-                -s "EXPORTED_FUNCTIONS=['_on_init', '_on_destroy', '_on_request', '_on_response', \
-                             '_on_sensor_event', '_on_timer_callback', '_on_connection_data']" \
+emcc -g -O3 main.c -s WASM=1 -s SIDE_MODULE=1 -s ASSERTIONS=1 -s STACK_OVERFLOW_CHECK=2 \
+                -I${PWD}/../.. \
                 -s TOTAL_MEMORY=65536 -s TOTAL_STACK=4096 -o test.wasm
                 
 #./jeffdump -o test_wasm.h -n wasm_test_file test.wasm

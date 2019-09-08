@@ -16,40 +16,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "wasm_app.h"
+#include "ext_lib_export_dec.h"
 
 static int timer_count = 0;
 
-void timer_tick(user_timer_t timer)
-{
-    printf("Hello from timer tick: %d \n", timer_count++);
-}
-
 int main(int argc, char **argv)
 {
-    printf("main: Initialising the timer..!\n");
+    print_test(timer_count);
 
-    char *buf;
-    user_timer_t timer;
+    while (1)
+    {
+        print_test(timer_count++);
+    }    
 
-    timer = api_timer_create(1000, true, false, timer_tick);
-    api_timer_restart(timer, 1000);
-
-    printf("mian: Timer started \n");
-
-    /*
-    buf = malloc(200);
-    if (!buf) {
-        printf("malloc buf failed\n");
-        return -1;
-    }
-
-    printf("buf ptr: %p\n", buf);
-
-    sprintf(buf, "%s", "1234\n");
-    printf("buf: %s", buf);
-
-    free(buf);
-    */
     return 0;
 }
