@@ -6,12 +6,10 @@ extern {
 #[no_mangle]
 pub extern fn main() {
     let mut x: i32 = 898;
-    unsafe{ print_test(x);}    
-    //println!("initialising: {0}", "rust");
+    unsafe{ print_test(x);}
 
     loop {
         x += 1;
-        //println!("hello from rust loop: {0}", x);
         unsafe {print_test(x);}
         unsafe {thread_sleep(2000);}
     }
