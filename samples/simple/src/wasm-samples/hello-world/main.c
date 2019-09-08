@@ -27,6 +27,7 @@ int main(int argc, char **argv)
     while (1)
     {
         print_test(timer_count++);
+        thread_sleep(1000);
     }    
 
     return 0;

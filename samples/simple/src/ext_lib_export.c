@@ -17,15 +17,22 @@
 #include "ext_lib_export_dec.h"
 #include "lib_export.h"
 #include <sys/printk.h>
+#include <zephyr.h>
 
 void print_test(int num)
 {
     printk("Hello from exported print_test: %d \n", num);
 }
 
+void thread_sleep(int millis)
+{
+    k_sleep(millis);
+}
+
 
 static NativeSymbol extended_native_symbol_defs[] = {
-    EXPORT_WASM_API(print_test)
+    EXPORT_WASM_API(print_test),
+    EXPORT_WASM_API(thread_sleep)
 };
 
 #include "ext_lib_export.h"
