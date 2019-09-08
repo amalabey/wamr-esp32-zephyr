@@ -25,4 +25,4 @@ emcc -g -O3 main.c -s WASM=1 -s SIDE_MODULE=1 -s ASSERTIONS=1 -s STACK_OVERFLOW_
                 -s TOTAL_MEMORY=65536 -s TOTAL_STACK=4096 -o test.wasm
                 
 #./jeffdump -o test_wasm.h -n wasm_test_file test.wasm
-xxd -i test.wasm > test_wasm.h
+xxd -i test.wasm > ../../test_wasm.h

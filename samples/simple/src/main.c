@@ -91,8 +91,8 @@ void iwasm_main(void *arg1, void *arg2, void *arg3)
 #endif
 
     /* load WASM byte buffer from byte buffer of include file */
-    wasm_file_buf = (uint8*) wasm_test_file;
-    wasm_file_size = sizeof(wasm_test_file);
+    wasm_file_buf = (uint8*) test_wasm;
+    wasm_file_size = sizeof(test_wasm);
 
     /* load WASM module */
     if (!(wasm_module = wasm_runtime_load(wasm_file_buf, wasm_file_size,
