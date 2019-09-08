@@ -8,6 +8,11 @@ edition = "2018"
 
 [dependencies]
 wasm-bindgen = "0.2.50"
+wee_alloc = "0.4.5"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
+
+[profile.dev]
+#https://github.com/rust-lang/rust/issues/46367
+opt-level = 1
