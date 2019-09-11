@@ -27,7 +27,8 @@ int main(int argc, char **argv)
     while (1)
     {
         print_test(timer_count++);
-        thread_sleep(1000);
+        gpio_out(10, timer_count % 2);
+        thread_sleep(3000);
     }    
 
     return 0;
