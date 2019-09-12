@@ -26,3 +26,5 @@ emcc -g -O3 main.c -s WASM=1 -s SIDE_MODULE=1 -s ASSERTIONS=1 -s STACK_OVERFLOW_
                 
 #./jeffdump -o test_wasm.h -n wasm_test_file test.wasm
 xxd -i test.wasm > ../../test_wasm.h
+
+echo "Done.."
