@@ -144,17 +144,6 @@ bool iwasm_init(void)
 
 void main(void)
 {
-//     wasm_printf("start waiting \n");
-//     k_sleep(5000);
-//     wasm_printf("wait over  \n");
-
     iwasm_init();
-
-    // while(1) 
-    // {
-    //     wasm_printf("hello from wasm in a loop\n");
-
-    //     k_sleep(1000);
-    // }
 }
 
